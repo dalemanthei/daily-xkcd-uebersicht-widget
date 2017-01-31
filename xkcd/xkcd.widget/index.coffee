@@ -1,5 +1,5 @@
 
-command: "curl --silent http://xkcd.com/info.0.json"
+command: "curl --silent https://xkcd.com/info.0.json"
 
 # Set the refresh frequency (milliseconds) to every 6 hours
 refreshFrequency: 21600000
@@ -9,10 +9,10 @@ render: (output) -> """
   <div id='container'>
   <div>
 """
-update: (output, domEl) -> 
+update: (output, domEl) ->
   xkcd = JSON.parse(output)
   container = $(domEl).find('#container')
-  content = 
+  content =
     """
     <h2>#{xkcd.title}</h2>
     <div class='alt'>#{xkcd.alt}</div>
